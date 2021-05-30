@@ -22,7 +22,3 @@ for i in range(2**n):
         if ((i >> j) & 1):      # 順に右にシフトして最下位bitのフラグを確認
             tmp.append(lst[j])
     print(tmp)
-
-# bitDP
-"""集合をbitのフラグで状態として管理するDP """
-# dp[S] : 部分集合Sに対して、その順序を最適化したときの最小(最大)コスト

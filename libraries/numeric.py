@@ -1,7 +1,7 @@
 """最大公約数"""
 def gcd(a,b):
-    import fractions
-    return fractions.gcd(a,b)
+    import math
+    return math.gcd(a,b)
 
 """最小公倍数"""
 def lcm(a,b):
@@ -103,3 +103,22 @@ def comb(n,k):
 # n種類のものから重複を許してk個選ぶ場合の数
 def overlapping_comb(n,k):
     return comb(n+k-1, k)
+
+""" 逆元 (a^-1 [mod b])"""
+# mod_bにおけるaの逆元
+# aとbは互いに素
+# python3.8以降では pow(a, -1, b)でも獲得可能
+def modinv(a, b):
+    p = b
+    x, y, u, v = 1, 0, 0, 1
+    while b:
+        k = a // b
+        x -= k * u
+        y -= k * v
+        x, u = u, x
+        y, v = v, y
+        a, b = b, a % b
+    x %= p
+    if x < 0:
+        x += p
+    return x
